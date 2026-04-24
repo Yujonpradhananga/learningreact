@@ -1,5 +1,5 @@
 import { useState } from 'react';
-function Square({value, onSquareClick}) {
+function Square({ value, onSquareClick }) {
   return (
     <button className="square" onClick={onSquareClick}>
       {value}
@@ -21,11 +21,7 @@ function Board({ xIsNext, squares, onPlay }) {
   }
   const winner = calculateWinner(squares);
   let status;
-  if (winner) {
-    status = 'Winner: ' + winner;
-  } else {
-    status = 'Next player: ' + (xIsNext ? 'X' : 'O');
-  }
+  status = winner ? 'Winner: ' + winner : 'Next player: ' + (xIsNext ? 'X' : 'O');
   return (
     <>
       <div className="status">{status}</div>
@@ -64,11 +60,7 @@ export default function Game() {
   }
   const moves = history.map((squares, move) => {
     let description;
-    if (move > 0) {
-      description = 'Go to move #' + move;
-    } else {
-      description = 'Go to game start';
-    }
+    (move > 0) ? description = 'Go to move #' + move : description = 'Go to game start';
     return (
       <li key={move}>
         <button onClick={() => jumpTo(move)}>{description}</button>
