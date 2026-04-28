@@ -1,0 +1,28 @@
+type State = {
+  deep: {
+    nested: {
+      obj:{
+        count: 1
+      }
+    }
+  }
+}
+
+normal: () =>
+    set((state) => ({
+      deep: {
+        ...state.deep,
+        nested: {
+          ...state.deep.nested,
+          obj: {
+            ...state.deep.nested.obj,
+            count: state.deep.nested.obj.count + 1
+          }
+        }
+      }
+    })),
+
+
+
+immerInc: () =>
+set(produce((state: State) => { ++state.deep.nested.obj.count })),
