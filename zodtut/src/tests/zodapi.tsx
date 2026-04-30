@@ -1,17 +1,13 @@
 import { z } from 'zod';
 import { useEffect } from 'react';
-
 const postSchema = z.object({
   userId: z.number().positive().int(),
   id: z.number().positive().int(),
   title: z.string(),
   body: z.string()
 });
-
 const postSchemaArray = z.array(postSchema);
-
 type Posts = z.infer<typeof postSchemaArray>;
-
 const ZodApi = () => {
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
