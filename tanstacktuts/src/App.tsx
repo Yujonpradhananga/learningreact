@@ -4,11 +4,7 @@ import { MainLayout } from './components/Layouts/MainLayout'
 import { Home } from './pages/Home'
 import { FetchOld } from './pages/FetchOld'
 import { FetchRq } from './pages/FetchRq'
-import { createRoute } from '@tanstack/react-router'
-
-
-
-
+import TestQ from './Query/NewQuery'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,11 +25,11 @@ const router = createBrowserRouter([
     ]
   }
 ])
-
 const App = () => {
   return (
-    <RouterProvider router={router}>
-    </RouterProvider>
+    //<RouterProvider router={router}>
+    //</RouterProvider>
+    <TestQ />
   )
 }
 
