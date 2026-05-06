@@ -3,12 +3,10 @@ import { persist } from 'zustand/middleware'
 type Store = {
   token: string | null
 }
-
 type Action = {
   setToken: (token: string) => void
   logout: () => void
 }
-
 const useAuthStore = create<Store & Action>()(
   persist(
     (set) => ({

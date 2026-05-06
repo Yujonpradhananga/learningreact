@@ -11,7 +11,6 @@ export const Route = createRootRoute({
     const router = useRouter();
 
     const currentPath = router.state.location.pathname;
-
     useEffect(() => {
       if (!token && !publicRoutes.includes(currentPath)) {
         navigate({ to: '/login' });
