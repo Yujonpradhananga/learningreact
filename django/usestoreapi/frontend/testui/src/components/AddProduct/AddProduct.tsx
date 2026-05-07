@@ -1,8 +1,8 @@
 import { useState } from "react";
 import * as z from "zod";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createProduct } from "./api";
-import Form from "./Form";
+import { createProduct } from "../api";
+import Form from "../Form";
 
 const ProductSchema = z.object({
   name: z.string().min(1, "Name is required"),

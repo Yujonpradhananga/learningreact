@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { useNavigate } from '@tanstack/react-router';
+import { useNavigate, Link } from '@tanstack/react-router';
 import axios from 'axios';
+import './Register.css';
 
 function RegisterPage() {
   const [username, setUsername] = useState('');
@@ -34,18 +35,23 @@ function RegisterPage() {
   };
 
   return (
-    <div>
+    <div className='register-wrapper'>
       <h1>Register</h1>
-      <form onSubmit={handleRegister}>
-        <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-        <br />
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        <br />
-        <input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-        <br />
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        <button type="submit">Register</button>
-      </form>
+      <div className="register-form-container">
+        <form onSubmit={handleRegister}>
+          <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+          <br />
+          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <br />
+          <input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+          <br />
+          {error && <p style={{ color: "red" }}>{error}</p>}
+          <button type="submit">Register</button>
+        </form>
+        <p className="login-redirect">
+          Have an account? <Link to="/login">Login here</Link>
+        </p>
+      </div>
     </div>
   );
 }

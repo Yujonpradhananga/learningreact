@@ -5,9 +5,10 @@ type Store = {
   token: string | null
 }
 type Action = {
-  setToken: (token: string) => void
+  setToken: (token: string) => void,
   logout: () => void
 }
+
 const useAuthStore = create<Store & Action>()(
   persist(
     (set) => ({

@@ -1,4 +1,4 @@
-.login-wrapper {
+.register-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,20 +6,20 @@
   margin: 6rem 0rem;
 }
 
-.login-wrapper h1 {
+.register-wrapper h1 {
   font-size: clamp(2rem, 5vw, 4rem);
   color: #4c4c4c;
   margin-bottom: 0.5rem;
 }
 
-.login-subheading {
+.register-subheading {
   font-weight: 700;
   color: #fe9e0d;
   font-size: 1.15rem;
   margin-bottom: 1rem;
 }
 
-.login-form-container {
+.register-form-container {
   background-color: white;
   max-width: 450px;
   width: 100%;
@@ -29,7 +29,7 @@
   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
 }
 
-.login-form-container form {
+.register-form-container form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -37,7 +37,7 @@
   width: 100%;
 }
 
-.login-form-container input {
+.register-form-container input {
   width: 100%;
   padding: 0.75rem 1rem;
   border: 1px solid #ccc;
@@ -46,11 +46,11 @@
   outline: none;
 }
 
-.login-form-container input:focus {
+.register-form-container input:focus {
   border-color: #fe9e0d;
 }
 
-.login-form-container button {
+.register-form-container button {
   width: 100%;
   padding: 0.9rem 1.75rem;
   background-color: #fe9e0d;
@@ -65,29 +65,29 @@
   margin-top: 0.5rem;
 }
 
-.login-form-container button:hover {
+.register-form-container button:hover {
   background-color: #e48f0f;
 }
 
-.login-error {
+.register-error {
   color: red;
   font-size: 0.95rem;
   text-align: center;
 }
 
-.login-redirect {
+.register-redirect {
   margin-top: 1.5rem;
   color: #6a6a6a;
   font-size: 1rem;
   text-align: center;
 }
 
-.login-redirect a {
+.register-redirect a {
   color: #fe9e0d;
   font-weight: 600;
   text-decoration: none;
 }
 
-.login-redirect a:hover {
+.register-redirect a:hover {
   text-decoration: underline;
 }

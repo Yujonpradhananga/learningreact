@@ -9,8 +9,8 @@ export const Route = createRootRoute({
     const { token, logout } = useAuthStore();
     const navigate = useNavigate();
     const router = useRouter();
-
     const currentPath = router.state.location.pathname;
+
     useEffect(() => {
       if (!token && !publicRoutes.includes(currentPath)) {
         navigate({ to: '/login' });
@@ -24,20 +24,22 @@ export const Route = createRootRoute({
 
     return (
       <div>
-        <nav style={{ padding: "10px", display: "flex", gap: "10px" }}>
+        <nav>
           {token && (
             <>
               <Link to="/">Products</Link>
               <Link to="/add">Add Product</Link>
-              <button onClick={handleLogout}>Logout</button>
+              <button onClick={handleLogout}>Signout</button>
             </>
           )}
+          {/*
           {!token && (
             <>
               <Link to="/login">Login</Link>
               <Link to="/register">Register</Link>
             </>
           )}
+          */}
         </nav>
         <Outlet />
       </div>

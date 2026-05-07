@@ -1,5 +1,4 @@
-import type { FormData } from "./AddProduct";
-
+import type { FormData } from "./AddProduct/AddProduct";
 
 type FormProps = {
   formData: FormData;
