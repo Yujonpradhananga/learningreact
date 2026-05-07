@@ -1,6 +1,6 @@
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
-from .models import Product, models
+from .models import Product
 from .serializers import ProductSerializer
 from django.contrib.auth.models import User
 from rest_framework.views import APIView
@@ -26,6 +26,11 @@ class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         return Product.objects.filter(owner=self.request.user)
+
+
+def get_queryset(self):
+    queryset = Product.objects.filter(owner=self.request.user)
+    return queryset
 
 
 class RegisterView(APIView):

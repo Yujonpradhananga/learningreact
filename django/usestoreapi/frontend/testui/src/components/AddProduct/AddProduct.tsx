@@ -1,8 +1,8 @@
 import { useState } from "react";
 import * as z from "zod";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createProduct } from "../api";
-import Form from "../Form";
+import { createProduct } from "../Api/Api";
+import Form from "../Form/Form.tsx";
 
 const ProductSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -27,24 +27,26 @@ function AddProduct() {
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
-
   const queryClient = useQueryClient();
-
   const mutation = useMutation({
     mutationFn: createProduct,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["test"] });
+      setFormData({
+        name: "",
+        description: "",
+        price: "",
+        in_stock: false,
+      });
     },
     onError: (error) => {
       console.error("Failed to create product:", error);
     },
   });
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
     setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
   };
-
   const handleSubmit = (e: any) => {
     e.preventDefault();
     const result = ProductSchema.safeParse({

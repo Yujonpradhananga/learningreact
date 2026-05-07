@@ -1,6 +1,7 @@
 import { createRootRoute, Outlet, Link, useNavigate, useRouter } from "@tanstack/react-router";
 import { useEffect } from "react";
 import useAuthStore from "../store/authStore";
+import "./Nav.css";
 
 const publicRoutes = ['/login', '/register'];
 
@@ -10,6 +11,10 @@ export const Route = createRootRoute({
     const navigate = useNavigate();
     const router = useRouter();
     const currentPath = router.state.location.pathname;
+    const handleLogout = () => {
+      logout();
+      navigate({ to: '/login' });
+    };
 
     useEffect(() => {
       if (!token && !publicRoutes.includes(currentPath)) {
@@ -17,29 +22,17 @@ export const Route = createRootRoute({
       }
     }, [token, currentPath]);
 
-    const handleLogout = () => {
-      logout();
-      navigate({ to: '/login' });
-    };
-
     return (
       <div>
-        <nav>
+        <nav className="navbar">
+          <a className="navbar-logo">🛒 Store</a>
           {token && (
-            <>
+            <div className="navbar-links-container">
               <Link to="/">Products</Link>
               <Link to="/add">Add Product</Link>
-              <button onClick={handleLogout}>Signout</button>
-            </>
+              <button className="navbar-signout-button" onClick={handleLogout}>Sign Out</button>
+            </div>
           )}
-          {/*
-          {!token && (
-            <>
-              <Link to="/login">Login</Link>
-              <Link to="/register">Register</Link>
-            </>
-          )}
-          */}
         </nav>
         <Outlet />
       </div>

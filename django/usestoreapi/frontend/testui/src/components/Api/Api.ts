@@ -1,5 +1,5 @@
 import axios from "axios";
-import useAuthStore from "../store/authStore"
+import useAuthStore from "../../store/authStore"
 
 export type Product = {
   name: string;
@@ -27,8 +27,10 @@ export const getProducts = async (): Promise<Product[]> => {
   const response = await api.get<Product[]>("products/");
   return response.data;
 };
-
 export const createProduct = async (product: Product): Promise<Product> => {
   const response = await api.post<Product>("products/", product);
   return response.data;
+};
+export const deleteProduct = async (id: number): Promise<void> => {
+  await api.delete(`products/${id}/`);
 };

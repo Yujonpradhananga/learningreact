@@ -1,9 +1,9 @@
 import { queryOptions } from "@tanstack/react-query";
-import { getProducts } from "../Components/api";
+import { getProducts } from "../components/Api/Api";
 
 export default function queryOpt() {
   return queryOptions({
-    queryKey: ["id1"],
+    queryKey: ["test"],
     queryFn: getProducts,
   });
 }
