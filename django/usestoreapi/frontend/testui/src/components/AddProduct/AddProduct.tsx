@@ -10,7 +10,6 @@ const ProductSchema = z.object({
   price: z.number().positive("Price must be positive"),
   in_stock: z.boolean(),
 });
-
 export type FormData = {
   name: string;
   description: string;

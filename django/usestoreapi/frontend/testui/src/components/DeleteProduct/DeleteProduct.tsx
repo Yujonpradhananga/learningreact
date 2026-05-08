@@ -18,8 +18,8 @@ function DeleteProduct({ id }: Props) {
   });
 
   return (
-    <button className="delete-button" onClick={() => mutation.mutate()}>
-      Delete
+    <button className="delete-button" onClick={() => mutation.mutate()} disabled={mutation.isPending}>
+      {mutation.isPending ? "Deleting..." : "Delete"}
     </button>
   );
 }

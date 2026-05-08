@@ -19,7 +19,6 @@ type Props = {
   id: number;
   product: FormData;
 };
-
 function UpdateProduct({ id, product }: Props) {
   const [formData, setFormData] = useState<FormData>({
     name: product.name,
@@ -43,7 +42,6 @@ function UpdateProduct({ id, product }: Props) {
       console.error("Failed to update product:", error);
     },
   });
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
     setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
