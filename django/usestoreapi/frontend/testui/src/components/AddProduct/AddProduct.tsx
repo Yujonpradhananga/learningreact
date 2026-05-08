@@ -25,7 +25,6 @@ function AddProduct() {
     price: "",
     in_stock: false,
   });
-
   const [errors, setErrors] = useState<Record<string, string>>({});
   const queryClient = useQueryClient();
   const mutation = useMutation({

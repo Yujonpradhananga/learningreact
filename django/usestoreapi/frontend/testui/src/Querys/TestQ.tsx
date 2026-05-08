@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import queryOpt from "./QueryConfigs";
 import DeleteProduct from "../components/DeleteProduct/DeleteProduct";
+import UpdateProduct from "../components/UpdateProduct/UpdateProduct";
 import "./TestQ.css";
 
 function TestQ() {
@@ -23,6 +24,12 @@ function TestQ() {
               {product.in_stock ? "In Stock" : "Out of Stock"}
             </p>
             <DeleteProduct id={product.id} />
+            <UpdateProduct id={product.id} product={{
+              name: product.name,
+              description: product.description,
+              price: product.description,
+              in_stock: product.in_stock,
+            }} />
           </div>
         ))}
       </div>

@@ -27,6 +27,9 @@ class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
     def get_queryset(self):
         return Product.objects.filter(owner=self.request.user)
 
+    def perform_update(self, serializer):
+        serializer.save(owner=self.request.user)
+
 
 def get_queryset(self):
     queryset = Product.objects.filter(owner=self.request.user)
@@ -51,7 +54,6 @@ class RegisterView(APIView):
                 {"error": "Username already exists"}, status=status.HTTP_400_BAD_REQUEST
             )
 
-        user = User.objects.create_user(username=username, password=password)
         return Response(
-            {"message": "User created successfully"}, status=status.HTTP_201_CREATED
+            {"message": "User created successfully!"}, status=status.HTTP_201_CREATED
         )

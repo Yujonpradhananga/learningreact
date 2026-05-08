@@ -7,7 +7,7 @@ class Product(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=8, decimal_places=2)
-    in_stock = models.BooleanField(default=True)
+    in_stock = models.BooleanField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
